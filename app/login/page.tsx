@@ -45,7 +45,8 @@ const LoginPage = () => {
 
   const { mutate: login, isPending } = useLogin();
 
-  // const { data: currentUser } = useCurrentUser();
+  const { data: currentUser } = useCurrentUser();
+
 
   const onSubmit = (data: LoginFormValues) => {
     login(data, {

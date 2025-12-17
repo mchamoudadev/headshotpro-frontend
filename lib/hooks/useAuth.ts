@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { LoginInput, RegisterInput } from "@/lib/types"
 import { authService } from "@/lib/services"
+import { error } from "console"
 
 export const authKeys = {
     all: ['auth'] as const,
@@ -37,11 +38,18 @@ export function useLogin() {
     })
 }
 
-export function useCurrentUser() {
+export function useCurrentUser(options?: { redirectOnError? : boolean}) {
     return useQuery({
         queryKey: authKeys.all,
         queryFn: () => authService.getCurrentUser(),
         staleTime: 5 * 60 * 1000, // 5 minutes
         retry: false,
+        throwOnError: (error: any) => {
+            // only redirect if explictly request 
+            if(options?.redirectOnError && typeof window !== "undefined"){
+                window.location.href ="/login"
+            }
+            return false
+        }
     })
 }
