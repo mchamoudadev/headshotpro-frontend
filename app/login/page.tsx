@@ -45,16 +45,13 @@ const LoginPage = () => {
 
   const { mutate: login, isPending } = useLogin();
 
-  const { data: currentUser } = useCurrentUser();
-
-
   const onSubmit = (data: LoginFormValues) => {
     login(data, {
       onSuccess: () => {
         toast.success("Login successful", {
           description: "You are now logged in",
         });
-        router.push("/dashboard/user");
+        router.push("/dashboard");
       },
       onError: (error) => {
         toast.error("Login failed", {

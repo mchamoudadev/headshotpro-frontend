@@ -2,7 +2,9 @@
 import { cookies, headers } from "next/headers";
 import { User } from "..";
 
-export async function getCurrentUserServer() {
+import {cache} from "react";
+
+export const getCurrentUserServer = cache(async () => {
   const cookieStore = await cookies();
 
   const accessToken = cookieStore.get("accessToken")?.value;
@@ -13,7 +15,6 @@ export async function getCurrentUserServer() {
 
   try {
     // call backend api to get current user
-
     const response = await fetch(
       `${
         process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api/v1"
@@ -39,4 +40,4 @@ export async function getCurrentUserServer() {
     console.error("Error fetching current user:", error);
     return null;
   }
-}
+});
