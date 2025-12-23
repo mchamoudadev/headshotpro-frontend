@@ -11,6 +11,8 @@ import { useUser } from "@/lib/context/user-context";
 import {
   useGetCreditPackages,
 
+  useGetPaymentHistory,
+
   useProcessPayment,
 } from "@/lib/hooks";
 import { PaymentPlatform } from "@/lib/types";
@@ -36,6 +38,9 @@ const CreditsPage = () => {
     useProcessPayment();
 
   //  TODO : Payment history
+
+  const { data: paymentHistory, isLoading: isLoadingPaymentHistory } =
+    useGetPaymentHistory(10);
 
   const handleSelectPackage = (packageId: string) => {
     setSelectedPackageId(packageId);
@@ -101,7 +106,7 @@ const CreditsPage = () => {
 
       {showHistory ? (
         //  Payment history component
-        <PaymentHistory orders={[]} isLoading={false} />
+        <PaymentHistory orders={paymentHistory || []} isLoading={isLoadingPaymentHistory} />
       ) : (
         <>
           {/* Credit Packages */}

@@ -7,13 +7,9 @@ import { useEffect } from "react";
 export default function VerifyPaymentContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const sessionId = searchParams.get("session_id");
 
   useEffect(() => {
-    if (!sessionId) {
-      router.push("/dashboard/user/credits");
-      return;
-    }
+
 
     // wait for 5 seconds
 
@@ -23,7 +19,7 @@ export default function VerifyPaymentContent() {
 
     // cleanup the timer
     return () => clearTimeout(timer);
-  }, [sessionId, router]);
+  }, [router]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background">

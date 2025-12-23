@@ -38,6 +38,7 @@ export async function proxy(request: NextRequest) {
     // Try refresh
 
     if (refreshToken) {
+
       try {
         const refreshResponse = await fetch(`${API_URL}/auth/refresh-token`, {
           method: "POST",
@@ -77,11 +78,12 @@ export async function proxy(request: NextRequest) {
 
     // Refresh failed - redirect to login
     return NextResponse.redirect(new URL("/auth/login", request.url));
+
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ["/dashboard/:path", "/auth/:path*"],
+  matcher: ["/dashboard/:path*", "/auth/:path*"],
 };

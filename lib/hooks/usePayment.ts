@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { getCreditPackages, processPayment } from "../services";
+import { getCreditPackages, getPaymentHistory, processPayment } from "../services";
 import { ProcessPaymentParams } from "../types";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
@@ -35,3 +35,11 @@ export function useProcessPayment() {
     });
 }
 
+export function useGetPaymentHistory(limit: number) {
+    return useQuery({
+        queryKey: ['payment-history', limit],
+        queryFn: () => getPaymentHistory(limit),
+        staleTime: 5 * 60 * 1000, // 5 minutes
+        retry: 2
+    });
+}
