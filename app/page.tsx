@@ -24,7 +24,7 @@ export default function Home() {
      </Button>
      </>
      ) : (
-      <Link href="/login" className="text-red-500">Login</Link>
+      <Link href="/auth/login" className="text-red-500">Login</Link>
      )}
     </div>
   

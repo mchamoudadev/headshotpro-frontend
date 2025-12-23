@@ -1,6 +1,5 @@
 "use client";
-import { z } from "zod";
-import { useForm } from "react-hook-form";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -11,15 +10,15 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { useCurrentUser, useLogin } from "@/lib/hooks/useAuth";
+import { useLogin } from "@/lib/hooks/useAuth";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Loader2 } from "lucide-react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 import { toast } from "sonner";
-import { getDashboardPath } from "@/lib/util/role-util";
 
 // Zod Validation
 

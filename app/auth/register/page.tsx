@@ -65,7 +65,7 @@ const RegisterPage = () => {
           description:
             "Please check your email to verfiy your account before logging in",
         });
-        router.push("/login");
+        router.push("/auth/login");
       },
       onError: (error) => {
         toast.error("Registration failed", {
@@ -176,7 +176,7 @@ const RegisterPage = () => {
             <div className="text-center text-sm text-muted-foreground">
               Already have an account?{" "}
               <Link
-                href="/login"
+                href="/auth/login"
                 className="font-medium text-foreground hover:underline"
               >
                 Sign in

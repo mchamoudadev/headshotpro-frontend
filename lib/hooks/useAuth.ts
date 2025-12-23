@@ -47,7 +47,7 @@ export function useCurrentUser(options?: { redirectOnError? : boolean}) {
         throwOnError: (error: any) => {
             // only redirect if explictly request 
             if(options?.redirectOnError && typeof window !== "undefined"){
-                window.location.href ="/login"
+                window.location.href ="/auth/login"
             }
             return false
         }
