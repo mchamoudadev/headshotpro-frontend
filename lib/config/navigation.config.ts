@@ -4,6 +4,7 @@ import {
   LayoutDashboard,
   LucideIcon,
   Settings,
+  ShoppingCart,
   User,
   Users,
 } from "lucide-react";
@@ -61,19 +62,9 @@ export const adminNavigation: NavigationItem[] = [
     badge: "new"
   },
   {
-    name: "Headshots",
-    href: "/dashboard/admin/headshots",
-    icon: Camera,
-  },
-  {
-    name: "Credits",
-    href: "/dashboard/admin/credits",
-    icon: CreditCard,
-  },
-  {
-    name: "Settings",
-    href: "/dashboard/admin/settings",
-    icon: Settings,
+    name: "Orders",
+    href: "/dashboard/admin/orders",
+    icon: ShoppingCart,
   }
 ];
 

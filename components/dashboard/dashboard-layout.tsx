@@ -42,7 +42,7 @@ const DashboardLayout = ({ children, onLogout }: DashboardLayoutProps) => {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link
-            href={getDashboardPath(userRole)}
+            href={"/"}
             className="text-lg font-semibold text-foreground"
           >
             Headshot Pro Build
