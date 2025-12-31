@@ -22,6 +22,7 @@ export default function Home() {
      <Button asChild>
       <Link href="/dashboard/admin">Go to Admin Dashboard</Link>
      </Button>
+     <h1 className="text-2xl font-bold">Hello</h1>
      </>
      ) : (
       <Link href="/auth/login" className="text-red-500">Login</Link>
