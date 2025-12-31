@@ -1,12 +1,11 @@
 "use client";
 
 import { Loader2 } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { Suspense, useEffect } from "react";
 
 export default function VerifyPaymentContent() {
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     // wait for 5 seconds
